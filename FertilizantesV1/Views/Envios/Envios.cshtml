@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Envios";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+
+<head>
+    <link href="~/Content/envios.css" rel="stylesheet" />
+</head>
+
+<div class="container">
+
+    <h2 class="envios-title" style="margin-top: 100px">Envíos de Pedidos</h2>
+    <div class="envios-cards mb-5">
+        <div class="card envios-card">
+            <div class="card-image">
+                <img src="~/Content/fertilzantes/fert1.png" class="card-img-top" alt="Imagen del Fertilizante 1" width="250">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Fertilizante Orgánico Líquido (alto Nitrógeno)</h5>
+                <p class="card-text">Fertilizante Orgánico Super Concentrado Líquido Aumenta Producción Garantizamos Mínimo 10% de Mayor Rendimiento que Cualquier Fertilización Convencional al Mismo Precio.</p>
+                <p class="card-total">$1,899</p>
+                <p>Paquetería: <span class="text-primary font-weight-bold">DHL</span></p>
+                <a href="#" class="btn btn-warning card-btn">Actualizar Status</a>
+                <a href="~/Views/Envios/DetallesEnvio.cshtml" class="btn btn-info card-btn">Ver más detalles</a>
+            </div>
+        </div>
+        <div class="card envios-card">
+            <div class="card-image">
+                <img src="~/Content/fertilzantes/fert2.png" class="card-img-top" alt="Imagen del Fertilizante 1" width="250">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Biofeed Nutra-plus 8 2-4 fertilizante Líquido Multiuso</h5>
+                <p class="card-text">Fertilziante liquido. Marca y modelo: Biofeed nutraplus Multiuso B01L0O7X7M</p>
+                <p class="card-total">$2,229</p>
+                <p>Paquetería: <span class="text-primary font-weight-bold">Fedex</span></p>
+                <a href="#" class="btn btn-warning card-btn">Actualizar Status</a>
+                <a href="~/Views/Envios/DetallesEnvio.cshtml" class="btn btn-info card-btn">Ver más detalles</a>
+            </div>
+        </div>
+    </div>
+</div>

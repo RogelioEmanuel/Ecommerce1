@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="text" />
+    <Property Name="descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="calle_t" Type="nvarchar" MaxLength="50" />
+    <Property Name="colonia_t" Type="nvarchar" MaxLength="50" />
+    <Property Name="estado_t" Type="nvarchar" MaxLength="50" />
+    <Property Name="num_tarj_cred" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="dirEntrega">
+    <Key>
+      <PropertyRef Name="id_dir_ent" />
+    </Key>
+    <Property Name="id_dir_ent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="calle" Type="nvarchar" MaxLength="50" />
+    <Property Name="colonia" Type="nvarchar" MaxLength="50" />
+    <Property Name="estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="tel" Type="nchar" MaxLength="10" />
+    <Property Name="id_cliente" Type="int" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_empleado" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="60" />
+    <Property Name="email" Type="nchar" MaxLength="255" />
+    <Property Name="rol" Type="nchar" MaxLength="20" />
+    <Property Name="departamento" Type="nchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="orden">
+    <Key>
+      <PropertyRef Name="id_orden" />
+    </Key>
+    <Property Name="id_orden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="num_confirmacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="id_dir_entrega" Type="int" />
+    <Property Name="id_paqueteria" Type="int" />
+    <Property Name="num_guia" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_envio" Type="date" />
+  </EntityType>
+  <EntityType Name="orden_producto">
+    <Key>
+      <PropertyRef Name="id_orden" />
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_orden" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="paqueteria">
+    <Key>
+      <PropertyRef Name="id_paqueteria" />
+    </Key>
+    <Property Name="id_paqueteria" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="60" />
+    <Property Name="rfc" Type="nvarchar" MaxLength="13" />
+    <Property Name="tel" Type="nvarchar" MaxLength="12" />
+    <Property Name="web" Type="nvarchar" MaxLength="60" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="60" />
+    <Property Name="contacto" Type="nvarchar" MaxLength="60" />
+    <Property Name="tel_contacto" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="precio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ult_actualizacion" Type="date" />
+    <Property Name="imagen" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_categoria" Type="int" />
+    <Property Name="existencia " Type="int" />
+    <Property Name="stock" Type="int" />
+  </EntityType>
+  <Association Name="FK__dirEntreg__id_cl__73BA3083">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="dirEntrega" Type="Self.dirEntrega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="dirEntrega">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__id_client__787EE5A0">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden__id_paquet__778AC167">
+    <End Role="paqueteria" Type="Self.paqueteria" Multiplicity="0..1" />
+    <End Role="orden" Type="Self.orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paqueteria">
+        <PropertyRef Name="id_paqueteria" />
+      </Principal>
+      <Dependent Role="orden">
+        <PropertyRef Name="id_paqueteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden_pro__id_or__76969D2E">
+    <End Role="orden" Type="Self.orden" Multiplicity="1" />
+    <End Role="orden_producto" Type="Self.orden_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orden">
+        <PropertyRef Name="id_orden" />
+      </Principal>
+      <Dependent Role="orden_producto">
+        <PropertyRef Name="id_orden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orden_pro__id_pr__4AB81AF0">
+    <End Role="producto" Type="Self.producto" Multiplicity="1" />
+    <End Role="orden_producto" Type="Self.orden_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="orden_producto">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__id_cat__5CD6CB2B">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TiendaModelStoreContainer">
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dirEntrega" EntityType="Self.dirEntrega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orden" EntityType="Self.orden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orden_producto" EntityType="Self.orden_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paqueteria" EntityType="Self.paqueteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__dirEntreg__id_cl__73BA3083" Association="Self.FK__dirEntreg__id_cl__73BA3083">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="dirEntrega" EntitySet="dirEntrega" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__id_client__787EE5A0" Association="Self.FK__orden__id_client__787EE5A0">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden__id_paquet__778AC167" Association="Self.FK__orden__id_paquet__778AC167">
+      <End Role="paqueteria" EntitySet="paqueteria" />
+      <End Role="orden" EntitySet="orden" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden_pro__id_or__76969D2E" Association="Self.FK__orden_pro__id_or__76969D2E">
+      <End Role="orden" EntitySet="orden" />
+      <End Role="orden_producto" EntitySet="orden_producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orden_pro__id_pr__4AB81AF0" Association="Self.FK__orden_pro__id_pr__4AB81AF0">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="orden_producto" EntitySet="orden_producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__id_cat__5CD6CB2B" Association="Self.FK__producto__id_cat__5CD6CB2B">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

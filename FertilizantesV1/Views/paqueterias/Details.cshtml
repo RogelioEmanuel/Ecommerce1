@@ -1,0 +1,76 @@
+﻿@model FertilizantesV1.Models.paqueteria
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+<div class="container mt-4">
+
+    <h2 class="text-success">Detalles de la paquetería</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal mt-4">
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.rfc)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.rfc)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.tel)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.tel)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.web)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.web)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.contacto)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.contacto)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.tel_contacto)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.tel_contacto)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar Paquetería", "Edit", new { id = Model.id_paqueteria }, new { @class = "btn btn-warning mt-3 d-block w-100" })
+        @Html.ActionLink("Regresar", "Index",new { area = "" },new { @class = "btn btn-dark mt-3 d-block w-100" })
+    </p>
+</div>

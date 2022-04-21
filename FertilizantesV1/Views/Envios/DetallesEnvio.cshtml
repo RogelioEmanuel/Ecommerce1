@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "DetallesEnvio";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/detallesEnvio.css" />
+</head>
+<div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+
+    <h2 class="text-success">Detalles de envío de paquete</h2>
+    <div class="details mt-4">
+        <div class="details_data">
+            <p class="details_id is-bold">ID DE PEDIDO: <span>1</span></p>
+            <p class="details_status is-bold">STATUS: <span>En ruta para entrega</span></p>
+        </div>
+        <div class="details_content">
+            <h2 class="details_id">Detalles</h2>
+            <div class="details_product d-flex align-items-center mt-4">
+                <div class="details_image">
+                    <img src="~/Content/img/productos/fert7.jpg" width="220" alt="Imagen del producto" />
+                </div>
+                <div class="details-info">
+                    <h5 class="card-title">Fertilizante Orgánico Líquido (alto Nitrógeno)</h5>
+                    <p class="card-text">Fertilizante Orgánico Super Concentrado Líquido Aumenta Producción Garantizamos Mínimo 10% de Mayor Rendimiento que Cualquier Fertilización Convencional al Mismo Precio.</p>
+                    <p class="card-total">$1,899</p>
+                </div>
+            </div>
+
+            <div class="details_address mt-5">
+                <h2>Dirección de entrega</h2>
+                <p class="details_dir">C. Plutarco González 305, Barrio de la Merced, 50080 Toluca de Lerdo, Méx.</p>
+            </div>
+
+            <div class="details_service mt-5">
+                <p>Paquetería: <span class="text-primary is-bold">DHL</span></p>
+                <p class="details_number">Número de seguimiento: <span class="is-bold">JJD0099999999</span></p>
+            </div>
+
+            <div class="details_date mt-5">
+                <p>Fecha del pedido: <span class="text-info is-bold">18/04/2022</span></p>
+                <p>Fecha estimada de entrega: <span class="text-info is-bold">25/04/2022</span></p>
+            </div>
+
+            <div class="details_date mt-5 d-flex flex-column align-items-end">
+                <p class="is-bold">Subtotal: <span class="text-info">$1,899</span></p>
+                <p class="is-bold">Envío: <span class="text-info">$120</span></p>
+                <p class="is-bold">Total del pedido: <span class="text-info">$2,019</span></p>
+            </div>
+            <a href="" class="btn btn-success d-block w-100 mt-4">Regresar</a>
+        </div>
+    </div>
+</div>

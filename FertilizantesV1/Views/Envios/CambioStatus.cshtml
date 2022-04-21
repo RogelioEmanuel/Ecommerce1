@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "CambioStatus";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/detallesEnvio.css" />
+</head>
+<div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+
+    <h2 class="text-success">Cambio de Status de paquete</h2>
+    <div class="details mt-4">
+        <div class="details_content">
+            <h2 class="details_id">Detalles</h2>
+            <div class="details_product d-flex align-items-center mt-4">
+                <div class="details_image">
+                    <img src="~/Content/img/productos/fert7.jpg" width="220" alt="Imagen del producto" />
+                </div>
+                <div class="details-info">
+                    <h5 class="card-title">Fertilizante Orgánico Líquido (alto Nitrógeno)</h5>
+                    <p class="card-text">Fertilizante Orgánico Super Concentrado Líquido Aumenta Producción Garantizamos Mínimo 10% de Mayor Rendimiento que Cualquier Fertilización Convencional al Mismo Precio.</p>
+                    <p class="card-total">$1,899</p>
+                </div>
+            </div>
+
+            <div class="details_service mt-5">
+                <p>Paquetería: <span class="text-primary is-bold">DHL</span></p>
+                <p class="details_number">Número de seguimiento: <span class="is-bold">JJD0099999999</span></p>
+            </div>
+
+            <div class="details_date mt-5">
+                <p>Fecha del pedido: <span class="text-info is-bold">18/04/2022</span></p>
+                <p>Fecha estimada de entrega: <span class="text-info is-bold">25/04/2022</span></p>
+            </div>
+
+            <div class="details_data mt-5 d-flex flex-column align-items-end">
+                <p class="details_id is-bold">ID DE PEDIDO: <span>1</span></p>
+                <div class="">
+                    <label for="inputState">STATUS:</label>
+                    <select id="inputState" class="details_select">
+                        <option selected>Entregado</option>
+                        <option>En ruta para entrega</option>
+                        <option>Preparando envío</option>
+                    </select>
+                </div>
+            </div>
+
+            <a href="" class="btn btn-warning d-block w-100 mt-4">Actualizar</a>
+            <a href="" class="btn btn-dark d-block w-100 mt-4">Regresar</a>
+        </div>
+    </div>
+</div>

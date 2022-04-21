@@ -1,0 +1,84 @@
+﻿@model FertilizantesV1.Models.paqueteria
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+<div class="container">
+
+    <h2 class="text-danger">Eliminar la paquetería</h2>
+
+    <h3>¿Estás seguro de que deseas eliminar la paquetería?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal mt-4">
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.rfc)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.rfc)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.tel)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.tel)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.web)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.web)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.contacto)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.contacto)
+            </dd>
+
+            <dt class="mb-1">
+                @Html.DisplayNameFor(model => model.tel_contacto)
+            </dt>
+
+            <dd class="mb-4">
+                @Html.DisplayFor(model => model.tel_contacto)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Eliminar" class="btn btn-danger d-block w-100" />
+                <div class=" mt-3 btn btn-dark d-block w-100">
+                    @Html.ActionLink("Regresar", "Index")
+                </div>
+            </div>
+        }
+    </div>
+</div>
