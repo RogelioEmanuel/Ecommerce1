@@ -1,7 +1,26 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700;900&display=swap');
-.services{
-    font-family: "Raleway", sans-serif;
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800;900&family=Raleway:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
 }
-.compras {
-    font-family: "Raleway", sans-serif;
+.services,
+.compras,
+.orden,
+.login {
+    font-family: 'Poppins', sans-serif;
+}
+.orden label,
+.orden input{
+    font-family: 'Poppins', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+label {
+    font-family: 'Poppins', sans-serif;
 }

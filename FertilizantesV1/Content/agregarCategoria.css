@@ -1,0 +1,17 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700;900&display=swap');
+
+.agregarCate-title {
+    margin: 40px 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 5px;
+}
+.form-group input{
+    display: inline-block;
+    width: 100%;
+    max-width: initial;
+}

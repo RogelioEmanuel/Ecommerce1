@@ -1,0 +1,113 @@
+﻿@model FertilizantesV1.Models.orden
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/font.css" />
+</head>
+
+<div class="container orden" style="padding-top: 30px; margin-bottom: 50px">
+    <h2 class="mb-2" style="color: #5cb874;">Actualizar número de guía y fecha de envío</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Orden a actualizar</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id_orden)
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.fecha_creacion, htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.fecha_creacion, new { @class = "form-control", @Value = Model.fecha_creacion.ToShortDateString(), @readonly = "true" } )
+                @Html.ValidationMessageFor(model => model.fecha_creacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.num_confirmacion, htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.num_confirmacion, new { @class = "form-control", @readonly = "true" } )
+                @Html.ValidationMessageFor(model => model.num_confirmacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.total, htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.total, new { @class = "form-control", @readonly = "true" } )
+                @Html.ValidationMessageFor(model => model.total, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.cliente.nombre, "nom_cliente", htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.cliente.nombre, new { @class = "form-control", @readonly = "true" })
+                @Html.ValidationMessageFor(model => model.id_cliente, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+            @*Html.LabelFor(model => model.id_cliente, "id_cliente", htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })*@
+            <div class="col-md-10">
+                @*Html.DropDownList("id_cliente", null, htmlAttributes: new { @class = "form-control" })*@
+                @*Html.ValidationMessageFor(model => model.id_cliente, "", new { @class = "text-danger" })*@
+            </div>
+        </div>-->
+
+        <div class="form-group mb-3">
+            @Html.Label("Dirección de entrega", htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                <div class="form-control" readonly>
+                    @Html.DisplayFor(model => model.cliente.calle_t),
+                    @Html.DisplayFor(model => model.cliente.colonia_t),
+                    @Html.DisplayFor(model => model.cliente.estado_t),
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.id_paqueteria, "Paquetería", htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                @*Html.DropDownList("id_paqueteria", null, htmlAttributes: new { @class = "form-control", @readonly = "true" })*@
+                @Html.TextBoxFor(model => model.paqueteria.nombre, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.id_paqueteria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.num_guia, htmlAttributes: new { @class = "control-label col-md-2 text-uppercase" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.num_guia, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.num_guia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.fecha_envio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.fecha_envio, new { @type = "date", @class = "form-control datepicker", @required = "required" })
+                @Html.ValidationMessageFor(model => model.fecha_envio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-2">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="Guardar" class="btn text-white btn-block w-100" , style="background-color: #F3950D" />
+            </div>
+        </div>
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Regresar", "Index", new { }, new{ @class = "btn btn-dark btn-block w-100"})
+    </div>
+</div>
+

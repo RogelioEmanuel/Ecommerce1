@@ -1,0 +1,101 @@
+﻿@model IEnumerable<FertilizantesV1.Models.orden>
+@using FertilizantesV1.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
+    <h2 class="mb-5" style="color: #5cb874;">Listado de ordenes sin enviar</h2>
+
+    <!--<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>-->
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_orden).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_creacion).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.num_confirmacion).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total).ToString().ToUpper()
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.id_dir_entrega)*@
+                DIRECCIÓN DE ENTREGA
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_envio).ToString().ToUpper()
+            </th>
+            <!--<th>
+                @Html.DisplayNameFor(model => model.num_guia).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cliente.nombre).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paqueteria.nombre).ToString().ToUpper()
+            </th>-->
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string val;
+            if (item.fecha_envio.HasValue)
+            {
+                val = item.fecha_envio.GetValueOrDefault().ToShortDateString();
+            }
+            else
+            {
+                val = "";
+            }
+            <tr>
+                <td style="vertical-align: middle;">
+                    @Html.DisplayFor(modelItem => item.id_orden)
+                </td>
+                <td style="vertical-align: middle;">
+                    @Html.TextBoxFor(modelItem => item.fecha_creacion, new { @class = "form-control", @value = item.fecha_creacion.ToShortDateString(), @readonly = "readonly" })
+                </td>
+                <td style="vertical-align: middle;">
+                    @Html.DisplayFor(modelItem => item.num_confirmacion)
+                </td>
+                <td style="vertical-align: middle;">
+                    @Html.DisplayFor(modelItem => item.total)
+                </td>
+                <td style="vertical-align: middle;" class="text-break">
+                    @Html.DisplayFor(modelItem => item.cliente.calle_t)
+                    @Html.DisplayFor(modelItem => item.cliente.colonia_t)
+                    @Html.DisplayFor(modelItem => item.cliente.estado_t)
+                </td>
+                <td style="vertical-align: middle;">
+                    @Html.TextBoxFor(modelItem => item.fecha_envio, new { @class = "form-control", @value = val, @readonly = "readonly" })
+                </td>
+                <!--<td>
+                    @Html.DisplayFor(modelItem => item.num_guia)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.cliente.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.paqueteria.nombre)
+                </td>-->
+                <td style="vertical-align: middle;">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id_orden }, new { @class = "btn mb-1 d-block w-100 text-white", @style = "background-color: #F3950D" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id_orden }, new { @class = "btn btn-info mb-1 d-block w-100 text-white" })
+                    <!--@*Html.ActionLink("Delete", "Delete", new { id = item.id_orden })*@-->
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

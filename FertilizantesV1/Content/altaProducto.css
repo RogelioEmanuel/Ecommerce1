@@ -1,0 +1,33 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700;900&display=swap');
+
+.altaProd-title {
+    margin: 40px 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+.altaProd-form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    grid-gap: 30px;
+    padding: 30px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 100px;
+}
+.form-group input {
+    display: inline-block;
+    width: 100%;
+    max-width: initial;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+
+}
+.form-group label, label{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+.form-select{
+    display: flex;
+    flex-direction: column;
+}

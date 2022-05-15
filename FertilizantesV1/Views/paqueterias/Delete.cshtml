@@ -4,16 +4,16 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
 }
-<div class="container">
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
 
-    <h2 class="text-danger">Eliminar la paquetería</h2>
+    <h2 class="mb-3" style="color: #FF6363;">Eliminar la paquetería</h2>
 
-    <h3>¿Estás seguro de que deseas eliminar la paquetería?</h3>
+    <h4>¿Estás seguro de que deseas eliminar la paquetería?</h4>
     <div>
         <hr />
         <dl class="dl-horizontal mt-4">
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.nombre)
+                @Html.DisplayNameFor(model => model.nombre).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -21,7 +21,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.rfc)
+                @Html.DisplayNameFor(model => model.rfc).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -29,7 +29,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.tel)
+                @Html.DisplayNameFor(model => model.tel).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -37,7 +37,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.web)
+                @Html.DisplayNameFor(model => model.web).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -45,7 +45,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.direccion)
+                @Html.DisplayNameFor(model => model.direccion).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -53,7 +53,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.contacto)
+                @Html.DisplayNameFor(model => model.contacto).ToString().ToUpper() DEL ENCARGADO DE DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -61,7 +61,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.tel_contacto)
+                @Html.DisplayNameFor(model => model.tel_contacto).ToString().ToUpper() DEL ENCARGADO DE DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -75,8 +75,8 @@
 
             <div class="form-actions no-color">
                 <input type="submit" value="Eliminar" class="btn btn-danger d-block w-100" />
-                <div class=" mt-3 btn btn-dark d-block w-100">
-                    @Html.ActionLink("Regresar", "Index")
+                <div>
+                    @Html.ActionLink("Regresar", "Index", new {  }, new { @class = "text-white mt-2 btn btn-dark d-block w-100" })
                 </div>
             </div>
         }

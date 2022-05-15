@@ -29,10 +29,11 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/font.css" />
 
 </head>
-<body style="padding: 0">
-    <!-- ======= Header ======= -->
+<body style="padding: 0; display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh;">
+    <!-- ======= HeaderNormal ======= -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center">
             <div class="d-flex align-items-center me-auto gap-4">
@@ -41,7 +42,7 @@
                     <ul>
                         <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link scrollto active" })</li>
                         <li>@Html.ActionLink("Acerca de", "Index", "Home", new { area = "" }, new { @class = "nav-link scrollto" })</li>
-                        <li class="dropdown">
+                        <li class="dropdown" style="margin-right: 14px;">
                             <a href="#"><span>Fertilizantes</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li>
@@ -61,20 +62,20 @@
                         <li>
                             @using (Html.BeginForm("BuscaProd", "Catalogo", FormMethod.Post, new { @class = "form-inline"}))
                             {
-                                <input class="form-control mr-sm-2" id="nomBuscar" name="nomBuscar" type="text" placeholder="Buscar producto" aria-label="Search">
-                                <button class="btn btn-success my-2 my-sm-0" type="submit" value="submit">Buscar</button>
+                                <input class="form-control" id="nomBuscar" name="nomBuscar" type="text" placeholder="Buscar producto" aria-label="Search">
+                                <button class="btn btn-success" type="submit" value="submit">Buscar</button>
                             }
                         </li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav><!-- .navbar -->
             </div>
-            @Html.Partial("_LoginPartial")
+            @Html.Partial("_LoginPartial1")
 
         </div>
     </header><!-- End Header -->
 
-    <div class="">
+    <div class="" style="flex: 1;">
         @RenderBody()
     </div>
     <!-- ======= Footer ======= -->

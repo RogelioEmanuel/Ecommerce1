@@ -1,0 +1,63 @@
+﻿@{
+    string num = @Session["itemTotal"].ToString();
+}
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        //string name = Session["name"].ToString();
+        //Hey
+        string name = "Julieta";
+        <ul class="nav navbar-right d-flex algn-items-center gap-3">
+            <li>
+                <a class="btn" href="@Url.Action("Index", "Carro")">
+                    <i class="fa fa-shoping-cart" style="font-size: 24px; color: lightgoldenrodyellow"></i>
+                    <img src="~/Content/img/carrito.png" width="20" />
+                    <span class="badge" style="color: lightgoldenrodyellow">@num</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Hola @name</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Mis Pedidos", "Index", "Pedidos", null, new { id = "add" })</li>
+                </ul>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+
+            <!--
+                <li class="nav-user">
+                    <img src="~/Content/img/user.png" width="20" />
+                    @*Html.ActionLink("Hola " + name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "p-0" })*@
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+                <li class="nav-carrito">
+                    <img src="~/Content/img/carrito.png" width="20" />
+                    @*Html.ActionLink("$0,00", "Contact", "Home")*@
+                </li>
+            -->
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-right d-flex align-items-center gap-3">
+        <li>
+            <a class="btn" href="@Url.Action("Index", "Carro")">
+                <i class="fa fa-shoping-cart" style="font-size: 24px; color: lightgoldenrodyellow"></i>
+                <img src="~/Content/img/carrito.png" width="20" />
+                <span class="badge" style="color: lightgoldenrodyellow">@num</span>
+            </a>
+        </li>
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        
+        <!--
+            <li class="nav-carrito">
+            <img src="~/Content/img/carrito.png" width="20" />
+            @*Html.ActionLink("$0,00", "Contact", "Home")*@
+            </li>
+        -->
+    </ul>
+}

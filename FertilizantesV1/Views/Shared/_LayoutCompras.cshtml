@@ -30,35 +30,37 @@
     <link href="~/Content/font.css" rel="stylesheet">
 
 </head>
-<body class="compras">
-    <!-- ======= Header ======= -->
+<body class="compras" style="padding: 0; display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh;">
+    <!-- ======= HeaderCompras ======= -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center">
             <div class="d-flex align-items-center me-auto gap-3">
                 <h1 class="logo">@Html.ActionLink("FertiTec", "Index", "Home")</h1>
-
                 <nav id="navbar" class="navbar">
                     <ul>
-                        <!--<li class="dropdown">
-                <a href="#"><span>Categorías</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                    <li>@Html.ActionLink("Agregar", "Create", "categorias", null, new { id = "add" })</li>
-                    <li>@Html.ActionLink("Ver todas", "Index", "categorias", null, new { id = "list" })</li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                    <li>@Html.ActionLink("Agregar", "Create", "Producto", null, new { id = "add" })</li>
-                    <li>@Html.ActionLink("Ver todas", "Index", "Producto", null, new { id = "list" })</li>
-                </ul>
-            </li>-->
-                        <li class="dropdown">
-                            <a href="#"><span>Paqueterías</span> <i class="bi bi-chevron-down"></i></a>
+                        <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link scrollto active" })</li>
+                        <li>@Html.ActionLink("Acerca de", "Index", "Home", new { area = "" }, new { @class = "nav-link scrollto" })</li>
+                        <li class="dropdown" style="margin-right: 14px;">
+                            <a href="#"><span>Fertilizantes</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
-                                <li>@Html.ActionLink("Agregar", "Create", "paqueterias", null, new { id = "add" })</li>
-                                <li>@Html.ActionLink("Ver todas", "Index", "paqueterias", null, new { id = "list" })</li>
+                                <li>
+                                    <a href="@Url.Action("ProdCategoria", "Catalogo", new { idCat = 22 })">Fertilizante Liquidos</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ProdCategoria", "Catalogo", new { idCat = 6 })">Fertilizantes Quimicos</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ProdCategoria", "Catalogo", new { idCat = 2 })">Fertilizantes Minerales</a>
+                                </li>
+                                <li>@Html.ActionLink("Fertilizantes Organicos", "ProdCategoria", "Catalogo", new { idCat = 4 })</li>
                             </ul>
+                        </li>
+                        <li>
+                            @using (Html.BeginForm("BuscaProd", "Catalogo", FormMethod.Post, new { @class = "form-inline  d-flex"}))
+                            {
+                                <input class="form-control" id="nomBuscar" name="nomBuscar" type="text" placeholder="Buscar producto" aria-label="Search">
+                                <button class="btn btn-success" type="submit" value="submit">Buscar</button>
+                            }
                         </li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
@@ -71,14 +73,14 @@
                     }
                 </form>-->
             </div>
-            @Html.Partial("_LoginPartialEnviador")
+            @Html.Partial("_LoginPartial1")
         </div>
 </header><!-- End Header -->
     <!-- -->
 
     <div class=" body-content">
         @RenderBody()
-        <hr />
+        <!--<hr />-->
         <footer>
             <!--<p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>-->
         </footer>

@@ -4,15 +4,15 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
 }
-<div class="container mt-4">
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
 
-    <h2 class="text-success">Detalles de la paquetería</h2>
+    <h2 class="" style="color: #5cb874;">Detalles de la paquetería</h2>
 
     <div>
         <hr />
         <dl class="dl-horizontal mt-4">
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.nombre)
+                @Html.DisplayNameFor(model => model.nombre).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -20,7 +20,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.rfc)
+                @Html.DisplayNameFor(model => model.rfc).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -28,7 +28,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.tel)
+                @Html.DisplayNameFor(model => model.tel).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -36,7 +36,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.web)
+                @Html.DisplayNameFor(model => model.web).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -44,7 +44,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.direccion)
+                @Html.DisplayNameFor(model => model.direccion).ToString().ToUpper() DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -52,7 +52,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.contacto)
+                @Html.DisplayNameFor(model => model.contacto).ToString().ToUpper() DEL ENCARGADO DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -60,7 +60,7 @@
             </dd>
 
             <dt class="mb-1">
-                @Html.DisplayNameFor(model => model.tel_contacto)
+                @Html.DisplayNameFor(model => model.tel_contacto).ToString().ToUpper() DEL ENCARGADO DE LA PAQUETERÍA
             </dt>
 
             <dd class="mb-4">
@@ -70,7 +70,7 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Editar Paquetería", "Edit", new { id = Model.id_paqueteria }, new { @class = "btn btn-warning mt-3 d-block w-100" })
-        @Html.ActionLink("Regresar", "Index",new { area = "" },new { @class = "btn btn-dark mt-3 d-block w-100" })
+        @Html.ActionLink("Editar Paquetería", "Edit", new { id = Model.id_paqueteria }, new { @class = "btn text-white mt-3 mb-2 d-block w-100",@style = "background-color: #F3950D" })
+        @Html.ActionLink("Regresar", "Index",new { area = "" },new { @class = "btn btn-dark d-block w-100" })
     </p>
 </div>

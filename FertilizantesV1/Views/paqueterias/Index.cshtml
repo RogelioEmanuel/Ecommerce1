@@ -4,70 +4,71 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
 }
-<div class="container">
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
 
-    <h2 class="mb-3">Paqueterías registradas</h2>
+    <h2 class="mb-5" style="color: #5cb874;">Paqueterías Registradas</h2>
 
-    <p class="mb-5">
-        @Html.ActionLink("Crear nueva paquetería", "Create", new { area = "" }, new { @class = "btn btn-success" })
-    </p>
     <table class="table">
-        <tr>
+        <tr class="">
             <th>
-                @Html.DisplayNameFor(model => model.nombre)
+                @Html.DisplayNameFor(model => model.nombre).ToString().ToUpper()
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.rfc)
+                @Html.DisplayNameFor(model => model.rfc).ToString().ToUpper()
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tel)
+                @Html.DisplayNameFor(model => model.tel).ToString().ToUpper()
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.web)
+                @Html.DisplayNameFor(model => model.web).ToString().ToUpper()
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.direccion)
+                @Html.DisplayNameFor(model => model.direccion).ToString().ToUpper()
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.contacto)
+                NOMBRE DEL @Html.DisplayNameFor(model => model.contacto).ToString().ToUpper()
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tel_contacto)
+                @Html.DisplayNameFor(model => model.tel_contacto).ToString().ToUpper()
             </th>
             <th></th>
         </tr>
 
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rfc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.web)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contacto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tel_contacto)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id=item.id_paqueteria }, new { @class = "btn btn-warning mb-1 d-block w-100" })
-                @Html.ActionLink("Detalles", "Details", new { id=item.id_paqueteria }, new { @class = "btn btn-info mb-1 d-block w-100" })
-                @Html.ActionLink("Eliminar", "Delete", new { id=item.id_paqueteria }, new { @class = "btn btn-danger mb-1 d-block w-100" })
-            </td>
-        </tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.rfc)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.tel)
+                </td>
+                <td style="vertical-align: middle" class="text-break">
+                    @Html.DisplayFor(modelItem => item.web)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.contacto)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.tel_contacto)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id_paqueteria }, new { @class = "btn mb-1 d-block w-100 text-white", @style = "background-color: #F3950D" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id_paqueteria }, new { @class = "btn btn-info mb-1 d-block w-100 text-white" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id_paqueteria }, new { @class = "btn btn-danger mb-1 d-block w-100" })
+                </td>
+            </tr>
+        }
 
     </table>
+    <p class="mt-4">
+        @Html.ActionLink("Crear nueva paquetería", "Create", new { area = "" }, new { @class = "btn btn-success b-block w-100" })
+    </p>
 </div>
 

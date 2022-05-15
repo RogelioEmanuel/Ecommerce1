@@ -1,0 +1,81 @@
+﻿@model FertilizantesV1.Models.orden
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutEnviador.cshtml";
+}
+
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
+    <h2 class="mb-2" style="color: #5cb874;">Detalles de la orden</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.fecha_creacion).ToString().ToUpper()
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.fecha_creacion)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.num_confirmacion).ToString().ToUpper()
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.num_confirmacion)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.total).ToString().ToUpper()
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.id_dir_entrega).ToString().ToUpper()
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.id_dir_entrega)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.num_guia).ToString().ToUpper()
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.num_guia)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.fecha_envio).ToString().ToUpper()
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.fecha_envio)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.cliente.nombre).ToString().ToUpper() DEL COMPRADOR
+        </dt>
+
+        <dd class="mb-4">
+            @Html.DisplayFor(model => model.cliente.nombre)
+        </dd>
+
+        <dt class="mb-1">
+            @Html.DisplayNameFor(model => model.paqueteria.nombre).ToString().ToUpper() DE LA PAQUERÍA
+        </dt>
+
+        <dd class="mb-5">
+            @Html.DisplayFor(model => model.paqueteria.nombre)
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.id_orden }, new { @class = "btn text-white mt-3 mb-2 d-block w-100", @style = "background-color: #F3950D" })
+        @Html.ActionLink("Regresar", "Index", new { }, new { @class = "btn btn-dark d-block w-100" })
+    </p>
+</div>
+
