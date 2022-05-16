@@ -31,12 +31,14 @@
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="~/Content/font.css" />
 
+    <link rel="stylesheet" href="~/Content/menuResponsivo.css"/>
+
 </head>
 <body style="padding: 0; display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh;">
-    <!-- ======= HeaderNormal ======= -->
+    <!-- ======= HeaderNormall ======= -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center">
-            <div class="d-flex align-items-center me-auto gap-4">
+            <div class="d-flex align-items-center me-auto">
                 <h1 class="logo">@Html.ActionLink("FertiTec", "Index", "Home")</h1>
                 <nav id="navbar" class="navbar">
                     <ul>
@@ -56,18 +58,18 @@
                                 </li>
                                 <li>@Html.ActionLink("Fertilizantes Organicos", "ProdCategoria", "Catalogo", new { idCat = 4 })</li>
 
-                               
+
                             </ul>
                         </li>
                         <li>
-                            @using (Html.BeginForm("BuscaProd", "Catalogo", FormMethod.Post, new { @class = "form-inline"}))
+                            @using (Html.BeginForm("BuscaProd", "Catalogo", FormMethod.Post, new { @class = "form-inline" }))
                             {
                                 <input class="form-control" id="nomBuscar" name="nomBuscar" type="text" placeholder="Buscar producto" aria-label="Search">
                                 <button class="btn btn-success" type="submit" value="submit">Buscar</button>
                             }
                         </li>
                     </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
+                    <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
                 </nav><!-- .navbar -->
             </div>
             @Html.Partial("_LoginPartial1")

@@ -1,0 +1,61 @@
+﻿header{
+    height: 120px!important;
+}
+header > .container {
+    flex-direction: row;
+    align-items: center!important;
+}
+header > .container > form > ul {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+}
+header > .container > form > ul > li > a{
+    padding: 0;
+    font-size: 15px;
+}
+header > .container > form > ul > li:first-child {
+    align-self: flex-end;
+}
+header > .container > div.d-flex{
+    /*justify-content: space-between;*/
+    /*width: 100%;*/
+}
+header > .container > ul.nav{
+    flex-direction: column;
+    width: 100%;
+    align-content: flex-end;
+}
+header > .container > ul.nav > li > a{
+    padding: 0;
+    font-size: 15px;
+}
+header > .container > ul.nav > li:first-child {
+    align-self: flex-end;
+}
+@media screen and (min-width: 900px){
+    header > .container > div.d-flex > nav.navbar > ul > li:last-of-type > form {
+        display: flex;
+    }
+}
+@media screen and (min-width: 1200px){
+    header {
+        height: 80px !important;
+    }
+    header > .container {
+    }
+    header > .container > ul.nav{
+        flex-direction: row;
+        grid-gap: 20px!important;
+    }
+    header > .container > form > ul {
+        flex-direction: row;
+        grid-gap: 20px!important;
+    }
+    header > .container > div.d-flex > nav.navbar > ul > li:last-of-type > form{
+        display: flex;
+    }
+    header > .container > ul.nav{
+        justify-content: flex-end;
+    }
+}

@@ -24,3 +24,6 @@ input,
 label {
     font-family: 'Poppins', sans-serif;
 }
+li > a {
+    color: rgb(34, 34, 34);
+}

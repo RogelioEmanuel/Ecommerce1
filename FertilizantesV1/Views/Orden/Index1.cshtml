@@ -8,13 +8,17 @@
 <div class="container" style="padding-top: 30px; margin-bottom: 50px">
 
     <h2 class="mb-5" style="color: #5cb874;">Listado de órdenes pendientes de actualizar la fecha de entrega</h2>
-
+    <h3 id="orden_title" class="text-center" style="color: #FF6363; margin-top: 80px; margin-bottom: 10px">No hay Ordenes Pendientes de Actualizar Fecha de Entregaa</h3>
+    <div class="imagePack" id="imagePack" style="display: flex; justify-content: center;">
+        <img src="~/assets/img/delivery.svg" alt="Imágen de packete" width="280" height="280" loading="lazy" style="max-width: 400px; max-height: 400px">
+    </div>
     <!--<p>
         @Html.ActionLink("Create New", "Create")
     </p>-->
     <table class="table">
-        <tr>
+        <tr id="table-orden" style="display: none;">
             <th>
+
                 @Html.DisplayNameFor(model => model.id_orden).ToString().ToUpper()
             </th>
             <th>
@@ -33,50 +37,52 @@
             <th>
                 @Html.DisplayNameFor(model => model.fecha_envio).ToString().ToUpper()
             </th>
-            <!--<th>
-                @Html.DisplayNameFor(model => model.num_guia).ToString().ToUpper()
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cliente.nombre).ToString().ToUpper()
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.paqueteria.nombre).ToString().ToUpper()
-            </th>-->
             <th></th>
         </tr>
 
-    @foreach (var item in Model) {
-        string val;
-        if (item.fecha_envio.HasValue)
+        @foreach (var item in Model)
         {
-            val = item.fecha_envio.GetValueOrDefault().ToShortDateString();
-        }
-        else
-        {
-            val = "";
-        }
-        <tr class="">
-            <td style="vertical-align: middle">
-                @Html.DisplayFor(modelItem => item.id_orden)
-            </td>
-            <td style="vertical-align: middle">
-                @Html.TextBoxFor(modelItem => item.fecha_creacion, new { @class = "form-control", @value = item.fecha_creacion.ToShortDateString(), @readonly = "readonly" })
-            </td>
-            <td style="vertical-align: middle">
-                @Html.DisplayFor(modelItem => item.num_confirmacion)
-            </td>
-            <td style="vertical-align: middle">
-                @Html.DisplayFor(modelItem => item.total)
-            </td>
-            <td style="vertical-align: middle">
-                @Html.DisplayFor(modelItem => item.cliente.calle_t)
-                @Html.DisplayFor(modelItem => item.cliente.colonia_t)
-                @Html.DisplayFor(modelItem => item.cliente.estado_t)
-            </td>
-            <td style="vertical-align: middle">
-                @Html.TextBoxFor(modelItem => item.fecha_envio, new { @class = "form-control", @value = val, @readonly = "readonly" })
-            </td>
-            <!--<td>
+            string val;
+            if (item.fecha_envio.HasValue)
+            {
+                val = item.fecha_envio.GetValueOrDefault().ToShortDateString();
+            }
+            else
+            {
+                val = "";
+            }
+            if ((item.fecha_envio.HasValue))
+            {
+                <script>
+                    document.querySelector('#imagePack').style.display = "none";
+                    document.querySelector("#orden_title").style.display = "none";
+                    document.querySelector("#table-orden").style.display = 'table-row';
+                </script>
+
+            }
+
+            <tr class="">
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.id_orden)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.TextBoxFor(modelItem => item.fecha_creacion, new { @class = "form-control", @value = item.fecha_creacion.ToShortDateString(), @readonly = "readonly" })
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.num_confirmacion)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.total)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.cliente.calle_t)
+                    @Html.DisplayFor(modelItem => item.cliente.colonia_t)
+                    @Html.DisplayFor(modelItem => item.cliente.estado_t)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.TextBoxFor(modelItem => item.fecha_envio, new { @class = "form-control", @value = val, @readonly = "readonly" })
+                </td>
+                <!--<td>
                 @Html.DisplayFor(modelItem => item.num_guia)
             </td>
 
@@ -86,13 +92,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.paqueteria.nombre)
             </td>-->
-            <td style="vertical-align: middle">
-                @Html.ActionLink("Editar", "Edit1", new { id = item.id_orden }, new { @class = "btn text-white mb-1 d-block w-100", @style = "background-color: #F3950D" })
-                @Html.ActionLink("Detalles", "Details", new { id = item.id_orden }, new { @class = "btn text-white btn-info mb-1 d-block w-100" })
-                <!--@Html.ActionLink("Delete", "Delete", new { id = item.id_orden })-->
-            </td>
-        </tr>
-    }
+                <td style="vertical-align: middle">
+
+                    @Html.ActionLink("Editar", "Edit1", new { id = item.id_orden }, new { @class = "btn text-white mb-1 d-block w-100", @style = "background-color: #F3950D" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id_orden }, new { @class = "btn text-white btn-info mb-1 d-block w-100" })
+                    <!--@Html.ActionLink("Delete", "Delete", new { id = item.id_orden })-->
+                </td>
+            </tr>
+        }
 
     </table>
 </div>

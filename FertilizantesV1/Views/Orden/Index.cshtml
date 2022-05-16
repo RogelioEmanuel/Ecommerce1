@@ -8,13 +8,13 @@
 
 <div class="container" style="padding-top: 30px; margin-bottom: 50px">
     <h2 class="mb-5" style="color: #5cb874;">Listado de ordenes sin enviar</h2>
-
-    <!--<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>-->
+    <h3 id="orden_title" class="text-center" style="color: #FF6363; margin-top: 60px; margin-bottom: 35px">No hay Ordenes Pendientes de Envíar</h3>
+    <div class="imagePack" id="imagePack" style="display: flex; justify-content: center;">
+        <img src="~/assets/img/date.svg" alt="Imágen de packete" width="280" height="280" loading="lazy" style="max-width: 400px; max-height: 400px">
+    </div>
 
     <table class="table">
-        <tr>
+        <tr id="table-orden" style="display: none;">
             <th>
                 @Html.DisplayNameFor(model => model.id_orden).ToString().ToUpper()
             </th>
@@ -34,15 +34,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.fecha_envio).ToString().ToUpper()
             </th>
-            <!--<th>
-                @Html.DisplayNameFor(model => model.num_guia).ToString().ToUpper()
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cliente.nombre).ToString().ToUpper()
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.paqueteria.nombre).ToString().ToUpper()
-            </th>-->
             <th></th>
         </tr>
 
@@ -52,10 +43,20 @@
             if (item.fecha_envio.HasValue)
             {
                 val = item.fecha_envio.GetValueOrDefault().ToShortDateString();
+
             }
             else
             {
                 val = "";
+            }
+            if (!(item.fecha_envio.HasValue))
+            {
+                <script>
+                    document.querySelector('#imagePack').style.display = "none";
+                    document.querySelector("#orden_title").style.display = "none";
+                    document.querySelector("#table-orden").style.display = 'table-row';
+                </script>
+
             }
             <tr>
                 <td style="vertical-align: middle;">
@@ -79,16 +80,17 @@
                     @Html.TextBoxFor(modelItem => item.fecha_envio, new { @class = "form-control", @value = val, @readonly = "readonly" })
                 </td>
                 <!--<td>
-                    @Html.DisplayFor(modelItem => item.num_guia)
-                </td>
+                @Html.DisplayFor(modelItem => item.num_guia)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.cliente.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.paqueteria.nombre)
-                </td>-->
+            <td>
+                @Html.DisplayFor(modelItem => item.cliente.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paqueteria.nombre)
+            </td>-->
                 <td style="vertical-align: middle;">
+
                     @Html.ActionLink("Editar", "Edit", new { id = item.id_orden }, new { @class = "btn mb-1 d-block w-100 text-white", @style = "background-color: #F3950D" })
                     @Html.ActionLink("Detalles", "Details", new { id = item.id_orden }, new { @class = "btn btn-info mb-1 d-block w-100 text-white" })
                     <!--@*Html.ActionLink("Delete", "Delete", new { id = item.id_orden })*@-->
