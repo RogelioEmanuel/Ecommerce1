@@ -1,0 +1,99 @@
+﻿@model Final.Models.Productos
+
+@{
+    ViewBag.Title = "Borrar Productos";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Borrar</h2>
+
+<h3>Seguro de querer borrar este producto?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Precio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            Ultima actualización
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ult_actualizacion)
+        </dd>
+
+        <dt>
+            Imagen
+        </dt>
+
+        <dd>
+            <img src=@Html.DisplayFor(model => model.imagen)
+                 width="100"
+                 height="100">
+        </dd>
+
+        <dt>
+            Existencia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.existencia)
+        </dd>
+
+        <dt>
+            Stock
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            Estado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            Categoría
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorias.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

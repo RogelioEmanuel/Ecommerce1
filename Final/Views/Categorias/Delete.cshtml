@@ -1,0 +1,50 @@
+﻿@model Final.Models.Categorias
+
+@{
+    ViewBag.Title = "Borrar categoría";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Borrar</h2>
+
+<h3>Seguro de eliminar la categoría?</h3>
+<div>
+    <h4>Categorias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Estdado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estdado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

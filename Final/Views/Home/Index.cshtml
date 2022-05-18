@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Adminitrador de inventario";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+@{
+    DateTime dia = DateTime.Now;
+    var hora = dia.Hour;
+    string mensaje = "";
+    if (hora < 12)
+    {
+        mensaje = "Buenos dias: Administrador de inventario";
+    }
+    if ((hora >= 12) && (hora < 19))
+    {
+        mensaje = "Buenas tardes: Administrador de inventario";
+    }
+    if (hora >= 19)
+    {
+        mensaje = "Buenas noches: Administrador de inventario";
+    }
+
+}
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Bienvenido administrador de <span>inventario</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services section-bg">
+        <div class="container">
+
+            <div class="row no-gutters">
+                <div class="col-lg-4 col-md-6">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-laptop"></i></div>
+                        <h4 class="title"><a href="">@Html.ActionLink("Productos", "Index", "Productos", null, new { id = "add" })</a></h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-briefcase"></i></div>
+                        <h4 class="title">@Html.ActionLink("Categorías", "Index", "Categorias", null, new { id = "list" })</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Featured Services Section -->
+</main>

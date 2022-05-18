@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Final.Models.Productos>
+
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Productos</h2>
+
+<p>
+    <a href='@Url.Action("Create", "Productos")' class="btn btn-success">Agregar Producto</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Stock
+        </th>
+        
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src=@Html.DisplayFor(modelItem => item.imagen)
+                 width="100"
+                 height="100">
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+       
+        <td>
+            <a href='@Url.Action("Edit", "Productos", new { id = item.idProducto })' class="btn btn-primary">Editar</a>
+            <a href='@Url.Action("Details", "Productos", new { id = item.idProducto })' class="btn btn-warning">Detalles</a>
+            <a href='@Url.Action("Delete", "Productos", new { id = item.idProducto })' class="btn btn-danger">Borrar</a>
+        </td>
+    </tr>
+}
+
+</table>

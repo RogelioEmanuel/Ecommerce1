@@ -1,0 +1,43 @@
+﻿@model Final.Models.Categorias
+
+@{
+    ViewBag.Title = "Detalles de categoría";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Categorias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Estdado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estdado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href='@Url.Action("Edit", "Categorias", new { id = Model.idCategoria })' class="btn btn-primary">Editar</a>
+    @Html.ActionLink("Volver", "Index")
+</p>
