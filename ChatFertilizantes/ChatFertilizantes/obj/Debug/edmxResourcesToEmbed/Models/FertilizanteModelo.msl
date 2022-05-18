@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FertilizantesModelStoreContainer" CdmEntityContainer="FertilizantesModelos">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="FertilizantesModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="num_tarjeta" ColumnName="num_tarjeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comentarios">
+      <EntityTypeMapping TypeName="FertilizantesModel.Comentarios">
+        <MappingFragment StoreEntitySet="Comentarios">
+          <ScalarProperty Name="Idcomentario" ColumnName="Idcomentario" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="respuesta" ColumnName="respuesta" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+          <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="FertilizantesModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="ult_actualizacion" ColumnName="ult_actualizacion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="existencia" ColumnName="existencia" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

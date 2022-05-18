@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutSoporte.cshtml";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url(assets/img/slide/e1.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Envíos nacionales</h2>
+                        <p class="animate__animated animate__fadeInUp is-medium">
+                            Contamos con envíos a toda la república mexicana sin importar que vivas en el lugar más alejado
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/e2.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Mejores empresas de logística</h2>
+                        <p class="animate__animated animate__fadeInUp is-medium">Trabajamos con las mejores empresas de logística para que tu pedido pueda llegar hasta la puerta de tu casa en el menor tiempo posible</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Ver paqueterías</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/e3.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Recíbelo en tus manos</h2>
+                        <p class="animate__animated animate__fadeInUp is-medium">Nos preocupamos por que recibas tus productos personalmente hasta la puerta de tu casa con todas las medidas de seguridad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+    </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+    <!--Paqueterías-->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Paqueterías</h2>
+                <p class="is-medium">En <span class="is-bold">FertiTec</span> trabajamos de la mano con las mejores empresas de logística en todo México para ofrecerte la seguridad de que tus productos lleguen hasta la puerta de tu casa sin importar donde te encuentres dentro de la república mexicana</p>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box iconbox-blue p-5">
+                        <div class="services-image mb-2">
+                            <img src="~/Content/img/paqueterias/dhl.jpg" width="220" alt="Icono de paquetería 1" />
+                        </div>
+                        <h4><a href="@Url.Action("ProdCategoria", "Catalogo", new { idCat = 22 })">DHL</a></h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box iconbox-orange p-5">
+                        <div class="services-image mb-2">
+                            <img src="~/Content/img/paqueterias/fedex.jpg" width="220" alt="Icono de la paquetería 2" />
+                        </div>
+                        <h4><a href="@Url.Action("ProdCategoria", "Catalogo", new { idCat = 2 })">Fedex</a></h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box iconbox-pink p-5">
+                        <div class="services-image mb-2">
+                            <img src="~/Content/img/paqueterias/correosMexico.jpg" width="220" alt="Icono de la paquetería 3" />
+                        </div>
+                        <h4><a href="@Url.Action("ProdCategoria", "Catalogo", new { idCat = 6 })">Correos de méxico</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Categorias-->
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 text-center text-lg-start">
+                    <h3>Fertilizantes FertiTec</h3>
+                    <p>Visita el catálogo de nuestros productos donde encontraras fertilizantes de grande marcas en el mercado al mejor precio en todo México. La entrega es 100% segura hasta la puerta de tu casa.</p>
+                </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                    <a class="cta-btn align-middle" href="#">Ver productos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Cta Section -->
+</main>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="~/assets/vendor/php-email-form/validate.js"></script>

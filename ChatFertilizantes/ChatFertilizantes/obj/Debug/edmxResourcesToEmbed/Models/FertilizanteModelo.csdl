@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FertilizantesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="calle" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="colonia" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="cp" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+    <Property Name="num_tarjeta" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Comentarios">
+    <Key>
+      <PropertyRef Name="Idcomentario" />
+    </Key>
+    <Property Name="Idcomentario" Type="Int32" Nullable="false" />
+    <Property Name="comentario" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="respuesta" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="idproducto" Type="Int32" />
+    <Property Name="idcliente" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ult_actualizacion" Type="DateTime" Precision="0" />
+    <Property Name="imagen" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="existencia" Type="Int32" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="estado" Type="Byte" />
+    <Property Name="categoria" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="FertilizantesModelos" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Comentarios" EntityType="Self.Comentarios" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+  </EntityContainer>
+</Schema>

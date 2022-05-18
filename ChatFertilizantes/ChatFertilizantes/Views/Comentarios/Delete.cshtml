@@ -1,0 +1,71 @@
+﻿@model ChatFertilizantes.Models.Comentarios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-dark">Eliminar Comentario</h2>
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.comentario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.comentario)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.respuesta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.respuesta)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.status)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.idproducto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idproducto)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.idcliente)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idcliente)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Confirmar" class="btn btn-success d-block w-100" /> <br />
+                <div class="mt-3 btn btn-dark d-block w-100">
+                    @Html.ActionLink("Regresar", "Index", new { @class = "mt - 3 btn btn - dark d - block w - 100" })
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+
