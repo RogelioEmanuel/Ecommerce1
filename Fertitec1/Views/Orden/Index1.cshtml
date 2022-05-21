@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Fertitec.Models.Orden>
+
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_LayoutEnvios.cshtml";
+
+
+}
+
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
+
+    <h2 class="mb-5" style="color: #5cb874;">Listado de órdenes pendientes de actualizar la fecha de entrega</h2>
+
+    @Html.ActionLink("Create New", "Create")
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idOrden).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_creacion_).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.num_confirmacion).ToString().ToUpper()
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total).ToString().ToUpper()
+            </th>
+            <th>
+                Dirección de entrega
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_envio).ToString().ToUpper()
+            </th>
+            <!--<th>
+                    @Html.DisplayNameFor(model => model.num_guia).ToString().ToUpper()
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Clientes.nombre).ToString().ToUpper()
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Paqueterias.nombre).ToString().ToUpper()
+                </th>-->
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            string val;
+            if (item.fecha_envio.HasValue)
+            {
+                val = item.fecha_envio.GetValueOrDefault().ToShortDateString();
+            }
+            else
+            { val = " "; }
+            <tr>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.idOrden)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.fecha_creacion_, new { @class = "form-control", @Value = item.fecha_creacion_.ToShortDateString(), @readonly = "true" })
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.num_confirmacion)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Clientes.calle),
+                    @Html.DisplayFor(modelItem => item.Clientes.colonia),
+                    @Html.DisplayFor(modelItem => item.Clientes.estado)
+                </td>
+                <td style="vertical-align: middle">
+                    @Html.TextBoxFor(modelItem => item.fecha_envio, new { @class = "form-control", @Value = @val, @readonly = "true" })
+                </td>
+                <!--<td>
+                        @*@Html.DisplayFor(modelItem => item.fecha_envio)*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.num_guia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Clientes.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Paqueterias.nombre)
+                    </td>-->
+                <td style="vertical-align: middle">
+                    @Html.ActionLink("Editar", "Edit1", new { id = item.idOrden }, new { @class = "btn text-white mb-1 d-block w-100", @style = "background-color: #F3950D" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idOrden }, new { @class = "btn text-white btn-info mb-1 d-block w-100" })
+                    <!--@Html.ActionLink("Delete", "Delete", new { id = item.idOrden })-->
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

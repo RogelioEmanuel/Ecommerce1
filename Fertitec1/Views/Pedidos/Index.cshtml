@@ -1,0 +1,60 @@
+﻿@using Fertitec.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string c = Session["usr"].ToString();
+}
+<br />
+<br />
+<center>
+<h2>Bienvenido @c a su Historial de pedidos</h2>
+</center>
+<hr />
+
+<div class="row" style="background-color:#839192">
+    <table class="table table-bordered table-responsive table-striped table-dark">
+
+        @{ if (Session["misPedidos"] != null)
+            {
+
+                foreach (PedidoCliente pedido in (List<PedidoCliente>)Session["misPedidos"])
+                {
+                    int idOrd = pedido.Orden.idOrden;
+                    <tr>
+                        <td>Fecha: <u>@pedido.Fecha</u></td>
+                        <td>Envio: @pedido.envio</td>
+                        <td>Entrega: @pedido.status</td>
+
+                    </tr>
+
+                    foreach (ItemPedido item in (List<ItemPedido>)Session["Pedido"])
+
+                    {
+                        if (item.idOrd == idOrd)
+                        {
+                            <tr>
+                                <td>@item.Product.nombre</td>
+                                <td><center><img class="img-responsive" src="~/Content/img/productos/@item.Product.imagen"></center></td>
+
+                                <td>$@item.Product.precio c/u</td>
+                                <td>@item.Cantidad</td>
+                                <td>$@(item.Product.precio * item.Cantidad)</td>
+                            </tr>}
+                    }
+                    <tr>
+                        <td align="right" colspan="4">Total</td>
+                        <td>
+                            $@pedido.Total
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+    <hr />
+    <hr />
+    </div>
+        <br />
+        <center>
+            <a class="btn btn-warning" href="@Url.Action("Index", "Home")">Regresar a la Tienda</a>
+        </center>

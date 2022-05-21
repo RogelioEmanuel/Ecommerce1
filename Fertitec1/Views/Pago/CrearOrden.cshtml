@@ -1,0 +1,112 @@
+﻿@using Fertitec.Models
+@{
+    ViewBag.Title = "CrearOrden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string c = Session["usr"].ToString();
+    string d = Session["dirCliente"].ToString();
+    string fO = Session["fechaOrden"].ToString();
+    string fE = Session["fPentreg"].ToString();
+    int tTarj = Convert.ToInt32(Session["tTarj"].ToString());
+    string fig = "";
+    string nTarj = Session["nTarj"].ToString();
+    switch (tTarj)
+    {
+        case 1:
+            fig = "visa2.png"; //poner la imagen correspondiente
+            break;
+        case 2:
+            fig = "master1.png"; //poner la imagen correspondiente
+            break;
+        case 3:
+            fig = "am1.png"; //poner la imagen correspondiente
+            break;
+    }
+}
+<br />
+
+<h2 class="text-center">Enhorabuena <u>@c</u> su orden ha sido Completada!</h2>
+<br />
+<br />
+<h4>Detalles de su Orden:</h4>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="col-md-8; panel-heading" style="background-color:black">
+            <h4 class="p-3 mb-2 bg-success text-white"><b>Cliente:</b> @c </h4>
+            <h4 class="p-3 mb-2 bg-success text-white"><b>Direccion de Entrega:</b> @d </h4>
+            <h4 class="p-3 mb-2 bg-success text-white"><b>Fecha de Orden:</b> @fO </h4>
+            <h4 class="p-3 mb-2 bg-success text-white"><b>Fecha de Entrega:</b> @fE </h4>
+        </div>
+     </div>
+    <center>
+        <div class="col-md-12 bg-success">
+            <table class="table table-bordered table-responsive table-striped table-dark">
+                <thead>
+                    <tr class="info">
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                @foreach (Item item in (List<Item>)Session["cart"])
+                {
+
+                    <tr>
+
+                        <td><center><img class="img-responsive" src="~/Content/img/productos/@item.Product.imagen"></center></td>
+                        <td>@item.Product.nombre</td>
+                        <td><center>$@item.Product.precio</center></td>
+                        <td><center>@item.Cantidad</center></td>
+                        <td><center>$@(item.Product.precio * item.Cantidad)</center></td>
+                    </tr>
+                }
+                <tr>
+                    <td align="right" colspan="4">Total</td>
+                    <td>
+                        @{
+                            List<Item> cart = (List<Item>)Session["cart"];
+                            var total = cart.Sum(item => item.Product.precio * item.Cantidad);
+                        }
+                        $@total
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </center>
+        <div class="col-md-8">
+            <b><p>Usted ya cuenta con un metodo de pago. Si desea elegirlo solo haga clic sobre la imagen</p></b>
+            <div class="row">
+
+                <div class="col-md-8 col-md-offset-5">
+                    <a href="@Url.Action("Pagar", "Pago", new { tipoPago="T"})" style="text-decoration:none">
+                        <img src="~/Content/img/tarj/@fig" class="img-responsive img-rounded" />
+
+                        <br />
+                        @nTarj
+                        <br />
+                    </a>
+                </div>
+                <br />
+                <b><p>O bien, cómo metodo de pago puedes elegir PayPal </p></b>
+                <div class="com-md-6">
+
+                    <a href="@Url.Action("Pagar", "Pago", new { tipoPago="P"})" style="text-decoration:none">
+                        <img src="~/Content/img/tarj/paypal.png" class="img-responsive img-rounded" />
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--
+            Código de Paypal
+            <script>
+        -->
+
+        <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+        @*<script>paypal.Buttons().render('body')</script>*@
+        @*<p style="float: right; color: white">
+                @Html.ActionLink("Pagar", "pagar", "Pago", new { area = "" }, new { @class = "btn btn-success w-100 b-block" })
+            </p>*@
+    </div>
+

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "pagoNoAceptado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+<header class="masthead bg-danger text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <br />
+        <br />
+        <img class="masthead-avatar mb-5" src="~/assets/img/tache1.png" alt="..." />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Pago Rechazado</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fa fa-window-close-o"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Lo sentimos!! Su pago no fue aceptado, elija otra forma de pago</p>
+        <br />
+        <br />
+    </div>
+</header>
+@using (Html.BeginForm("CrearOrden", "Pago", FormMethod.Get))
+{
+    <div class="form-group; text-center">
+        <div class="col-md-offset-2 col-md-12">
+            <br />
+            <input type="submit" value="Continuar" class="btn btn-warning" />
+        </div>
+    </div>
+}
+

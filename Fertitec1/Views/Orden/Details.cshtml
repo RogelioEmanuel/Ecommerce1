@@ -1,0 +1,91 @@
+﻿@model Fertitec.Models.Orden
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutEnvios.cshtml";
+}
+
+@*<h2>Details</h2>*@
+
+<div class="container" style="padding-top: 30px; margin-bottom: 50px">
+    <h2 class="mb-2" style="color: #5cb874;">Detalles de la orden</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_creacion_).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_creacion_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_confirmacion).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_confirmacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_dirEnt).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_dirEnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_guia).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_guia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_envio).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_entrega).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.nombre).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paqueterias.nombre).ToString().ToUpper()
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paqueterias.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idOrden }, new { @class = "btn text-white mt-3 mb-2 d-block w-100", @style = "background-color: #F3950D" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-dark d-block w-100" })
+</p>

@@ -1,0 +1,46 @@
+﻿@using Fertitec.Models
+@{
+    ViewBag.Title = "pagoAceptado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string c = Session["usr"].ToString();
+    string d = Session["dirCliente"].ToString();
+    string fO = Session["fechaOrden"].ToString();
+    string fE = Session["fPentreg"].ToString();
+}
+
+<br />
+<br />
+<header class="masthead bg-success text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <br />
+        <br />
+        <img class="masthead-avatar mb-5" src="~/assets/img/check1.png" alt="..." />
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Pago Realizado</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Gracias por su compra, su pago ha sido procesado y su compra ha sido completada. Puede ver su pedido hciendo clic en Bienvenido</p>
+        <br />
+        <br />
+    </div>
+
+</header>
+
+
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <br />
+                <input type="submit" value="Confirmar Orden y Continuar" class="btn btn-warning" />
+            </div>
+        </div>
+    }
+
