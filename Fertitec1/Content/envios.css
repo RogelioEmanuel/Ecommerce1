@@ -1,0 +1,53 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;900&family=Raleway:wght@400;700;900&display=swap');
+
+.envios-title {
+    margin: 40px 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.envios-cards {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 30px;
+}
+
+.envios-card {
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    grid-gap: 30px;
+    padding: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card-image {
+    width: 250px;
+}
+
+    .card-image img {
+        display: block;
+        width: inherit;
+    }
+
+.card-title {
+    font-size: 30px;
+}
+
+.card-text {
+    font-size: 18px;
+}
+
+.card-total {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.card-btn {
+    width: 100%;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 20px;
+}

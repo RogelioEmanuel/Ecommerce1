@@ -1,0 +1,12 @@
+﻿#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 10px solid red;
+}
+
+    #footer p {
+        text-align: center;
+        padding: 10px;
+    }

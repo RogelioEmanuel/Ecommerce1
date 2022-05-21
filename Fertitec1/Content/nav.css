@@ -1,0 +1,74 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Source+Sans+Pro:wght@400;700&display=swap');
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #1B1A17;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #1B1A17;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+}
+
+.nav > li.nav-carrito,
+.navbar-nav > li.nav-user {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+    .nav > li.nav-carrito img {
+        display: block;
+    }
+
+    .nav > li.nav-carrito > a {
+        padding: 15px .5rem;
+    }
+
+ul.nav.navbar-navnavbar-list {
+    display: flex;
+    grid-gap: 10px;
+    flex-direction: row !important;
+}
+
+.navbar-header {
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.nav-user, .nav > li {
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar a {
+    padding: 0;
+    padding-left: 30px;
+}
+
+.navbar ul {
+    grid-gap: 10px;
+}
+
+#navbar {
+    margin-bottom: 0px;
+}
+
+.body-content {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.logo {
+    margin-right: auto !important;
+}
+
+@media screen and (min-width: 992px) {
+    .logo {
+        margin-right: 0 !important;
+    }
+}

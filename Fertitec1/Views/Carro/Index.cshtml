@@ -1,0 +1,54 @@
+﻿@using Fertitec.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Carro de Compras</h2>
+<br />
+<table class="table table-bordered table-responsive table-striped table-dark">
+    <thead>
+        <tr class="info">
+            <th>Opción</th>
+            <th>Nombre</th>
+            <th>Foto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    @foreach (Item item in (List<Item>)Session["cart"])
+    {
+
+        <tr>
+
+            <td><center><button class="btn btn-danger"><a href="@Url.Action("Quitar","Carro",new { id = item.Product.idProducto })"><font color="black">Quitar</font></a></button></center></td>
+
+            <td>@item.Product.nombre</td>
+            <td><center><img class="img-responsive" src="~/Content/img/productos/@item.Product.imagen"></center></td>
+            <td><center>$@item.Product.precio</center></td>
+            <td><center>@item.Cantidad</center></td>
+            <td><center>$@(item.Product.precio * item.Cantidad)</center></td>
+        </tr>
+
+    }
+    <tr>
+        <td align="right" colspan="5">Total</td>
+        <td>
+            @{
+                List<Item> cart = (List<Item>)Session["cart"];
+                var total = cart.Sum(item => item.Product.precio * item.Cantidad);
+            }
+            $@total
+        </td>
+    </tr>
+</table>
+<script src="https://paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons()render('body');</script>
+<br />
+<a class="btn btn-warning" href="@Url.Action("Index","Home")">Continuar comprando</a>
+<p style="float:right;color:white">
+    @Html.ActionLink("Pagar Orden", "CrearOrden", "Pago", new { area = "" }, new { @class = "btn btn-primary" })
+</p>
+
+

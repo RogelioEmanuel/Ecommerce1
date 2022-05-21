@@ -1,0 +1,18 @@
+﻿.details_data {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.details_dir {
+    max-width: 150px;
+}
+
+.is-bold {
+    font-weight: 900;
+}
+
+.details_select {
+    padding: 4px;
+    margin-left: 10px;
+    border: 2px solid #4D77FF;
+}
