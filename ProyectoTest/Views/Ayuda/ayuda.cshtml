@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "ayuda";
+    Layout = "~/Views/Shared/_LayoutContactHelp.cshtml";
+}
+
+<!-- help-page -->
+<div class="help">
+    <div class="container">
+        <h3 class="w3ls-title w3ls-title1">Cómo podemos ayudarte?</h3>
+        <div class="faq-w3agile">
+            <h5>Las 5 preguntas más frecuentes (FAQ)</h5>
+            <ul class="faq">
+                <li class="item1">
+                    <a href="#" title="click here">¿Cuáles son los productos que venden?</a>
+                    <ul>
+                        <li class="subitem1"><p> Los productos que se venden en la empresa FertiTec son Fertilizantes de los distintos tipos, todo dependiendo del uso que se le de ya sea para cultivos grandes o pequeños o el uso en invernadero.</p></li>
+                    </ul>
+                </li>
+                <li class="item2">
+                    <a href="#" title="click here">¿Cuentan con promociones todo el año?</a>
+                    <ul>
+                        <li class="subitem1"><p> Contamos con las promociones en diferentes días, ya sea en días festivos como también en días especiales para agricultores, como también las grandes ventas de fin de año.</p></li>
+                    </ul>
+                </li>
+                <li class="item3">
+                    <a href="#" title="click here"> ¿Cuáles son sus métodos de pago?</a>
+                    <ul>
+                        <li class="subitem1"><p>Los métodos de pago que manejamos son en tarjeta o mediante pagos en la plataforma de Pay Pal.</p></li>
+                    </ul>
+                </li>
+                <li class="item4">
+                    <a href="#" title="click here">¿Las entregas son inmediatas?</a>
+                    <ul>
+                        <li class="subitem1"><p>Las entregas de nuestros productos dependen mucho del servicio de paquetería que utilicemos, por lo que por el momento no contamos con entregas inmediatas.</p></li>
+                    </ul>
+                </li>
+                <li class="item5">
+                    <a href="#" title="click here">¿Cuentan con ventas por mayoreo?</a>
+                    <ul>
+                        <li class="subitem1"><p>Las ventas de nuestros productos son por costales grandes, así como también se tienen ofertas exclusivas para grandes cultivos que llevan bastantes productos para el uso de su tierra de cultivo.</p></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- script for tabs -->
+            <script type="text/javascript">
+					$(function() {
+
+						var menu_ul = $('.faq > li > ul'),
+							   menu_a  = $('.faq > li > a');
+
+						menu_ul.hide();
+
+						menu_a.click(function(e) {
+							e.preventDefault();
+							if(!$(this).hasClass('active')) {
+								menu_a.removeClass('active');
+								menu_ul.filter(':visible').slideUp('normal');
+								$(this).addClass('active').next().stop(true,true).slideDown('normal');
+							} else {
+								$(this).removeClass('active');
+								$(this).next().stop(true,true).slideUp('normal');
+							}
+						});
+
+					});
+            </script>
+            <!-- script for tabs -->
+        </div>
+    </div>
+</div>
+<!-- //login-page -->

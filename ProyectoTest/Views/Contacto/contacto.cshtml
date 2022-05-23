@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "contacto";
+    Layout = "~/Views/Shared/_LayoutContactHelp.cshtml";
+}
+
+<!-- contact-page -->
+<div class="contact">
+    <div class="container">
+        <h3 class="w3ls-title w3ls-title1">Contactanos</h3>
+        <div class="map-info">
+            <div class="col-md-6 map-grids">
+                <h4>Nuestra Tienda Física sede Toluca</h4>
+                <iframe src="https://maps.google.com/maps?q=Portales%20Toluca&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+            <div class="col-md-6 map-grids">
+                <h4>Nuestra Tienda Física sede CDMX</h4>
+                <iframe src="https://maps.google.com/maps?q=Zocalo%20Ciudad%20de%20M%C3%A9xico&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+            <div class="col-md-6 map-grids">
+                <h4>Nuestra Tienda Física sede Metepec</h4>
+                <iframe src="https://maps.google.com/maps?q=Instituto%20Tecnol%C3%B3gico%20de%20Toluca&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+            <div class="col-md-6 map-grids">
+                <h4>Nuestra Tienda Física sede Monterrey</h4>
+                <iframe src="https://maps.google.com/maps?q=Parque%20fundidora&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen=""></iframe>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="contact-form-row">
+            <h3 class="w3ls-title w3ls-title1">Escríbanos</h3>
+            <div class="col-md-7 contact-left">
+                <form action="#" method="post">
+                    <input type="text" name="Name" placeholder="Nombre" required="">
+                    <input class="email" type="text" name="Email" placeholder="Correo Electronico" required="">
+                    <textarea placeholder="Mensaje" name="Message" required=""></textarea>
+                    <input type="submit" onclick="clicked();" value="ENVIAR" />
+                </form>
+            </div>
+            <div class="col-md-4 contact-right">
+                <div class="cnt-w3agile-row">
+                    <div class="col-md-3 contact-w3icon">
+                        <i class="fa fa-truck" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-9 contact-w3text">
+                        <p>Administre sus pedidos <br>Rastree fácilmente pedidos y devoluciones </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="cnt-w3agile-row cnt-w3agile-row-mdl">
+                    <div class="col-md-3 contact-w3icon">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-9 contact-w3text">
+                        <p>Notificaciones <br>Obtenga alertas y recomendaciones relevantes</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="cnt-w3agile-row">
+                    <div class="col-md-3 contact-w3icon">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-9 contact-w3text">
+                        <p>Requerimientos<br> Con listas de deseos, reseñas, calificaciones</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+function clicked() {
+    alert('Mensaje Enviado Exitosamente');
+    }
+    </script>
+<!-- //contact-page -->

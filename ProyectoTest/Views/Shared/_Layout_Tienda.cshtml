@@ -1,0 +1,243 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FertiTec</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/PluginsCSS")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Favicons -->
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="~/assets/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+    <link href="~/Content/content/nav.css" rel="stylesheet" />
+
+    <link href="~/Content/content/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
+    <link href="~/Content/content/ken-burns.css" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider -->
+    <link href="~/Content/content/animate.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/content/owl.carousel.css" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->
+    <!-- //Custom Theme files -->
+    <!-- font-awesome icons -->
+    <link href="~/Content/content/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script src="~/Scripts/scripts/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- web-fonts -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+    <!-- web-fonts -->
+    <script src="~/Scripts/scripts/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+                items: 4,
+                itemsDesktop: [640, 5],
+                itemsDesktopSmall: [480, 2],
+                navigation: true
+
+            });
+        });
+    </script>
+    <script src="~/Scripts/scripts/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
+
+            $('.header-two').scrollToFixed();
+            // previous summary up the page.
+
+            var summaries = $('.summary');
+            summaries.each(function (i) {
+                var summary = $(summaries[i]);
+                var next = summaries[i + 1];
+
+                summary.scrollToFixed({
+                    marginTop: $('.header-two').outerHeight(true) + 10,
+                    zIndex: 999
+                });
+            });
+        });
+    </script>
+    <!-- start-smooth-scrolling -->
+    <script type="text/javascript" src="~/Scripts/scripts/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/scripts/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <script src="~/Scripts/scripts/bootstrap.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="#" style="width:180px !important">Fertitec</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-dark btn-ver-categoria" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i> Ver Categorias</button>
+
+            <!-- Navbar-->
+            @{
+                if (((ProyectoTest.Models.Usuario)Session["Usuario"]).EsAdministrador == false)
+                {
+                    <form action="@Url.Action("Carrito","Tienda")" method="post" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                        <button class="btn btn-close-white" type="submit">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill contador-carrito">0</span>
+                        </button>
+                    </form>
+
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("Index","Tienda")">Ir a Tienda</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Registrarse","Login")">Registrarce</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Contacto","contacto")">Contacto</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Ayuda","ayuda")">Ayuda</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            }
+
+        </div>
+    </nav>
+    <main class="container-fluid">
+        @RenderBody()
+    </main>
+    <div class="position-fixed top-0 end-0 p-3 mt-5" style="z-index: 5">
+        <div id="toast-carrito" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+            <div class="toast-body bg-success text-white">
+                <div class="d-flex">
+                    <i class="fas fa-check fa-2x"></i> <label style="margin-left: 10px !important">Se añadió al carrito!</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed top-0 end-0 p-3 mt-5" style="z-index: 5">
+        <div id="toast-alerta" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+            <div class="toast-body bg-danger text-white">
+                <div class="d-flex">
+                    <i class="fas fa-exclamation-circle fa-2x"></i> <label id="mensaje-error" class="ml-2" style="margin-left: 10px !important">Error</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/PluginsJS")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script>
+
+
+            $(document).ready(function () {
+                obtenerCantidad();
+            })
+            function obtenerCantidad() {
+                jQuery.ajax({
+                    url: '@Url.Action("CantidadCarrito", "Tienda")',
+                    type: "GET",
+                    data: null,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $(".contador-carrito").text(data.respuesta);
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    },
+                    beforeSend: function () {
+
+                    },
+                });
+
+            }
+            $(document).on('click', '.btn-agregar-carrito', function (event) {
+
+                var request = {
+                    oCarrito: {
+                        oProducto: { IdProducto: $(this).data("idproducto")  }
+                    }
+                }
+
+                jQuery.ajax({
+                    url: '@Url.Action("InsertarCarrito", "Tienda")',
+                    type: "POST",
+                    data: JSON.stringify(request),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        var actual = parseInt($(".contador-carrito").text());
+                        if (data.respuesta != 0) {
+                            actual = actual + 1;
+                            $(".contador-carrito").text(actual);
+                            $('#toast-carrito').toast('show');
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    },
+                    beforeSend: function () {
+
+                    },
+                });
+
+            });
+
+    </script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
